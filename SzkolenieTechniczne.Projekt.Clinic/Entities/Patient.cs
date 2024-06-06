@@ -1,9 +1,18 @@
-﻿namespace SzkolenieTechniczne.Projekt.Clinic.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SzkolenieTechniczne.Projekt.Clinic.Entities;
 
 public class Patient {
-    public int PatientId { get; set; }
+    [Required]
+    public Guid PatientId { get; set; }
+    [Required]
     public string FirstName { get; set; }
+    [Required]
     public string LastName { get; set; }
+    [Required]
     public DateTime BirthDate { get; set; }
+    [Required]
     public string PhoneNumber { get; set; }
+    
+    public ICollection<Appointment> Appointments { get; set; }
 }

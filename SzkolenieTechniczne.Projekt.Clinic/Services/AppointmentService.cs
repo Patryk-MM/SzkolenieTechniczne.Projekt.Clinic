@@ -13,15 +13,18 @@ namespace SzkolenieTechniczne.Projekt.Clinic.Services {
 
         public List<AppointmentDTO> GetAllAppointments() {
             var appointments = _appointmentRepository.GetAll();
-            return appointments.Select(a => new AppointmentDTO(a.Date)).ToList();
+            return appointments.Select(a => new AppointmentDTO(a.AppointmentId, a.Date)).ToList();
         }
 
         public void Create(AppointmentDTO appointmentDto) {
             Appointment appointment = new Appointment() {
-                AppointmentId = Guid.NewGuid(),
                 Date = appointmentDto.Date
             };
             _appointmentRepository.Create(appointment);
+        }
+
+        public void Delete(int id) {
+            _appointmentRepository.Delete(id);
         }
     }
 }

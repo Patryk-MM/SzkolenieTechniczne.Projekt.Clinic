@@ -33,5 +33,10 @@ namespace SzkolenieTechniczne.Projekt.Clinic.Controllers {
             return RedirectToAction("Index");
 
         }
+
+        public IActionResult Delete(int id) {
+            _appointmentService.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

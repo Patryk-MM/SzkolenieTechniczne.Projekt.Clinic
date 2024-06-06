@@ -2,15 +2,15 @@
 
 namespace SzkolenieTechniczne.Projekt.Clinic.DTOs {
     public class AppointmentDTO {
-        [Required]
+        public int AppointmentId { get; set; }
         public DateTime Date { get; set; }
 
         public AppointmentDTO() {
             
         }
         
-        public AppointmentDTO(DateTime date)
-        {
+        public AppointmentDTO(int appointmentId, DateTime date) {
+            AppointmentId = appointmentId;
             Date = date;
         }
     }
